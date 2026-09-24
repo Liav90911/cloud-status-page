@@ -6,8 +6,11 @@
     },
     {
       "name": "Database",
-      "status": "degraded
-      "
+      "status": "degraded"
+    },
+    {
+      "name": "Cache Layer",
+      "status": "operational"
     }
   ]
 }
