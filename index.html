@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Deployment Status</title>
+</head>
+<body>
+  <h1>Cloud Deployment Status</h1>
+  <ul id="status-list"></ul>
+
+  <script>
+    fetch('status.json')
+      .then(response => response.json())
+      .then(data => {
+        const list = document.getElementById('status-list');
+        data.services.forEach(service => {
+          const item = document.createElement('li');
+          item.textContent = service.name + ': ' + service.status;
+          list.appendChild(item);
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "services": [
+    {
+      "name": "API Server",
+      "status": "operational"
+    },
+    {
+      "name": "Database",
+      "status": "operational"
+    }
+  ]
+}
