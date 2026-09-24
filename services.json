@@ -1,0 +1,8 @@
+[
+  { "name": "API Gateway", "description": "REST API endpoint routing and rate limiting", "status": "operational", "uptime": "99.98%" },
+  { "name": "Database Cluster", "description": "Primary PostgreSQL managed cluster", "status": "operational", "uptime": "99.95%" },
+  { "name": "Object Storage", "description": "S3-compatible blob storage service", "status": "degraded", "uptime": "98.72%" },
+  { "name": "CDN", "description": "Global content delivery network", "status": "operational", "uptime": "99.99%" },
+  { "name": "Authentication", "description": "OAuth 2.0 and SSO identity service", "status": "maintenance", "uptime": "99.90%" },
+  { "name": "Queue Workers", "description": "Background job processing workers", "status": "outage", "uptime": "0%" }
+]
