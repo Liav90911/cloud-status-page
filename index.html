@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cloud Deployment Status</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Deployment Status Page</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Cloud Deployment Status</h1>
-  <ul id="status-list"></ul>
+  <header class="header">
+    <div class="container">
+      <h1>☁️ Cloud Deployment Status</h1>
+      <p class="subtitle">Real-time overview of cloud service health</p>
+      <div class="meta">
+        <span id="last-updated">Loading...</span>
+        <button id="refresh-btn" class="refresh-btn">↻ Refresh</button>
+      </div>
+    </div>
+  </header>
 
-  <script>
-    fetch('status.json')
-      .then(response => response.json())
-      .then(data => {
-        const list = document.getElementById('status-list');
-        data.services.forEach(service => {
-          const item = document.createElement('li');
-          item.textContent = service.name + ': ' + service.status;
-          list.appendChild(item);
-        });
-      });
-  </script>
+  <main class="container">
+    <section id="status-grid" class="status-grid"></section>
+
+    <section class="overall-status">
+      <h2>Overall System Status</h2>
+      <div id="overall-badge" class="overall-badge">Loading...</div>
+    </section>
+
+    <section class="legend">
+      <h2>Status Legend</h2>
+      <div class="legend-items">
+        <div class="legend-item"><span class="dot operational"></span> Operational</div>
+        <div class="legend-item"><span class="dot degraded"></span> Degraded</div>
+        <div class="legend-item"><span class="dot maintenance"></span> Maintenance</div>
+        <div class="legend-item"><span class="dot outage"></span> Outage</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Cloud Deployment Status Page — A learning project for Git &amp; GitHub workflows.</p>
+      <p class="footer-link">Built with HTML, CSS &amp; JavaScript · Deployed on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
