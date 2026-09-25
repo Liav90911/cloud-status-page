@@ -1,0 +1,17 @@
+name: Docker Build Check
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t cloud-status-page .
+      - name: Run container and test
+        run: |
+          docker run -d -p 8080:80 --name test-container cloud-status-page
+          sleep 3
+          curl -f http://localhost:8080 || exit 1
+          docker stop test-container
