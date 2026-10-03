@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: status-page-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: status-page
+  template:
+    metadata:
+      labels:
+        app: status-page
+    spec:
+      containers:
+        - name: status-page
+          image: cloud-status-page:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
