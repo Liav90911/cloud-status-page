@@ -1,0 +1,28 @@
+name: GitOps Deploy
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "index.html"
+      - "style.css"
+      - "script.js"
+      - "services.json"
+      - "Dockerfile"
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t cloud-status-page:latest .
+
+      - name: Terraform init
+        working-directory: terraform
+        run: terraform init
+
+      - name: Terraform apply
+        working-directory: terraform
+        run: terraform apply -auto-approve
